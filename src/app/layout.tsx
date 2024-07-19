@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import Tabs from "@/components/Tabs";
+import Tab from "@/components/Tab";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +17,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const tabs: string[] = ["Base 64", "Base 64 Image", "JSON formatter", "Md5 converter"]
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Header />
+        <Tab />
+        {children}
+      </body>
     </html>
   );
 }
